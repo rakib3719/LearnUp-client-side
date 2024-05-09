@@ -5,22 +5,37 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CreateAssinment = () => {
     const [startDate, setStartDate] = useState(new Date());
+
+    const foromHandle = e =>{
+       
+
+        e.preventDefault();
+        const title = e.target.title.value;
+        const description = e.target.description.value;
+        const mark = e.target.mark.value;
+        const thumb_img = e.target.photo.value;
+        const level = e.target.level.value;
+        const date = startDate.toLocaleDateString();
+        console.log(title, description, mark, thumb_img, level, date);
+      
+    }
+ 
     return (
         <div  className="bg-[#362417] rounded-md">
          
-           <div   className=" p-12">   
+           <div   className="p-4 sm:p-12">   
 
-<div  className="add-form-bg bg-gray-500 rounded  border  mx-auto p-4 md:p-8 ">
+<div  className="add-form-bg  bg-gray-500 rounded  border  mx-auto p-4 md:p-8 ">
 <div className="text-center flex justify-center gap-2 items-center">
-<h1 className="text-2xl  font-bold  font-raleway   text-white ">Create an Assignment</h1> <MdAssignment className="text-white" />
+<h1 className="text-xl sm:text-2xl  font-bold  font-raleway   text-white ">Create an Assignment</h1> <MdAssignment className="text-white" />
 </div>
-<form  className="font-poppoins" >
+<form onSubmit={foromHandle} className="font-poppoins" >
 
 <div className="md:flex gap-8 mt-8">
 
 <label className="form-control w-full ">
 <div className="label">
-<span className="label-text text-white font-semibold">Assignment  Title</span>
+<span className="label-text  text-white font-semibold">Assignment  Title</span>
 
 </div> 
 <input  type="text" name="title" placeholder="Type here Assignment title" className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]" />
@@ -73,7 +88,7 @@ const CreateAssinment = () => {
 
 </div>
 
-<select name="customization" className="input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-[10px] border-2 border-[#EFEFEF]" id="">
+<select name="level" className="input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-[10px] border-2 border-[#EFEFEF]" id="">
 
 <option value="easy"> Easy </option>
 <option value="medium"> Medium</option>
@@ -124,7 +139,9 @@ const CreateAssinment = () => {
 
 
 
-<button  className="w-full text-white font-bold mt-8 px-2 py-2 border-2 border-[#EFEFEF] rounded-2xl"><input type="submit" value="Submit" /></button>
+<div className="flex justify-end">
+<button  className=" text-white font-raleway  px-4 bg-[#573c28] font-bold mt-8  py-2   rounded"><input type="submit" value="Submit" /></button>
+</div>
 </form>
 </div>
   </div>
