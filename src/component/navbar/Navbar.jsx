@@ -30,7 +30,7 @@ const Navbar = () => {
     </div>
 
     return (
-        <div   className="navbar  z-10 relative">
+        <div   className="navbar   z-10 relative">
         <div className="navbar ">
  <div className="navbar-start">
    <div className="dropdown">
@@ -43,7 +43,7 @@ const Navbar = () => {
    </div>
    <a className="  text-[16px] sm:text-2xl font-bold font-playFair -ml-4 sm:-ml-0"> <img src={logo} alt="" className="w-20" /> </a>
  </div>
- <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden -mr-7 md:flex"}>
+ <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden -mr-7 lg:mr-24 md:flex"}>
    <ul className="menu menu-horizontal px-1">
 
        {nav}
@@ -88,12 +88,14 @@ const Navbar = () => {
             </li>
            
             <li className='mt-2'>
-              <button onClick={logOutHandle} className='bg-gray-200 btn font-raleway  block text-center'>Logout</button>
+              <button onClick={logOutHandle} className='btn font-raleway bg-[#C24914] text-white block text-center'>Logout</button>
             </li>
           </ul>
         </div>}
 
-
+{/*   'primary-color': '#C24914',
+      'bg-Primary': '#F9E0AE',
+      'secondary-color': '#682C0E', */}
     </div>
 
 
