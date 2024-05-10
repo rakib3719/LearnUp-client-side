@@ -2,9 +2,13 @@ import { MdAssignment } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import useAxiosSecure from "../../hook/useAxiosSecure";
+import Swal from "sweetalert2";
+
 
 const CreateAssinment = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const axiosSecure = useAxiosSecure()
 
     const foromHandle = e =>{
        
@@ -17,6 +21,21 @@ const CreateAssinment = () => {
         const level = e.target.level.value;
         const date = startDate.toLocaleDateString();
         console.log(title, description, mark, thumb_img, level, date);
+        const assinmentInfo = {title, description, mark, thumb_img, level, date}
+        axiosSecure.post('/createAss',assinmentInfo )
+        .then(data => {console.log(data.data)
+
+if(data.data.acknowledged){
+    Swal.fire({
+        title: 'Seuccessfully Create an Assignment',
+        text: 'Thank You',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
+}
+
+        })
+
       
     }
  
