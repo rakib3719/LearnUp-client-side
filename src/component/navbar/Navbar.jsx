@@ -4,6 +4,7 @@ import useAuth from "../../hook/useAuth";
 // import { FaUser } from "react-icons/fa";
 // import { Tooltip } from "react-tooltip";
 import logo from '../../assets/img/Blue Elegant Concept Foundation Logo.png'
+import useAxiosSecure from "../../hook/useAxiosSecure";
 
 
 const Navbar = () => {
@@ -11,8 +12,12 @@ const Navbar = () => {
     // const [isOpen, setIsOpen] = useState(false)
 
     const {logOut, user} = useAuth()
-    const logOutHandle = ()=>{
+    const axiosSecure = useAxiosSecure()
+     const logOutHandle = ()=>{
         logOut()
+        axiosSecure.get('/logout')
+        
+        
     }
     const nav = <div className="md:flex text-lg font-poppins">
     

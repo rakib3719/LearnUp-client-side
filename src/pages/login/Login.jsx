@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast} from "react-toastify";
 import loginImg from '../../assets/img/Group.png'
 import useAuth from "../../hook/useAuth";
+import useAxiosSecure from "../../hook/useAxiosSecure";
 
 
 const Login = () => {
 
-
+const axiosSecure = useAxiosSecure()
     const {login, loginWithGoogle, loginWithTwiter} = useAuth()
 
 
@@ -17,7 +18,13 @@ const Login = () => {
         loginWithGoogle()
         .then(result => {
             console.log(result.user.email);
+          
             toast("Login Successfully")
+            const email = result.user.email;
+            console.log(email);
+            axiosSecure.post('/jwt', {email})
+            .then(data => console.log(data.data))
+
             // setTimeout(()=> { navigate(currentLocation.state)}, 1000)
         })
         .catch(error => {
@@ -49,7 +56,12 @@ const Login = () => {
         login(email, password)
         .then(result => {
             console.log(result);
+            const email = result.user.email;
+    
+
             toast("Login Successfully")
+            axiosSecure.post('/jwt', email)
+            .then(data => console.log(data.data))
         
             // setTimeout(()=> { navigate(currentLocation.state)}, 2000)
         })

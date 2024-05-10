@@ -6,6 +6,7 @@ import Home from "../pages/home/Home";
 import CreateAssinment from "../pages/createAssinment/CreateAssinment";
 import Assignments from "../pages/assignments/Assignments";
 import PrivateRoute from "../privateRoute/PrivateRoute";
+import Update from "../pages/update/Update";
 
 
 const router = createBrowserRouter([{
@@ -34,6 +35,12 @@ children: [{
 {
     path:'/assignment',
     element: <Assignments></Assignments>
+},
+{
+    path:'/update/:id',
+    element: <Update></Update>
+
+    
 }
 
 ]
