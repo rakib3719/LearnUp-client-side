@@ -4,6 +4,8 @@ import Login from "../pages/login/Login";
 import Registar from "../pages/login/registar/Registar";
 import Home from "../pages/home/Home";
 import CreateAssinment from "../pages/createAssinment/CreateAssinment";
+import Assignments from "../pages/assignments/Assignments";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([{
@@ -27,7 +29,11 @@ children: [{
 
 {
     path:'/create_ass',
-    element:<CreateAssinment></CreateAssinment>
+    element:<PrivateRoute><CreateAssinment></CreateAssinment></PrivateRoute>
+},
+{
+    path:'/assignment',
+    element: <Assignments></Assignments>
 }
 
 ]

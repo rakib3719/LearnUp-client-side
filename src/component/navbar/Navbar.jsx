@@ -17,7 +17,7 @@ const Navbar = () => {
     const nav = <div className="md:flex text-lg font-poppins">
     
 <li>    <NavLink  to='/' >  Home </NavLink></li>
-<li>    <NavLink  to='/assignments ' >  Assignments </NavLink></li>
+<li>    <NavLink  to='/assignment' >  Assignments </NavLink></li>
 
 {
     

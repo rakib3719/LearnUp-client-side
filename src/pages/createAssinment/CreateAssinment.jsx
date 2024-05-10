@@ -4,11 +4,14 @@ import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../hook/useAuth";
 
 
 const CreateAssinment = () => {
     const [startDate, setStartDate] = useState(new Date());
     const axiosSecure = useAxiosSecure()
+    const {user} = useAuth();
+    console.log(user);
 
     const foromHandle = e =>{
        
@@ -19,9 +22,13 @@ const CreateAssinment = () => {
         const mark = e.target.mark.value;
         const thumb_img = e.target.photo.value;
         const level = e.target.level.value;
+        const name = user.displayName;
+        const email = user.email
+
         const date = startDate.toLocaleDateString();
-        console.log(title, description, mark, thumb_img, level, date);
-        const assinmentInfo = {title, description, mark, thumb_img, level, date}
+
+      
+        const assinmentInfo = {title, description, mark, thumb_img, level, date, name, email}
         axiosSecure.post('/createAss',assinmentInfo )
         .then(data => {console.log(data.data)
 
