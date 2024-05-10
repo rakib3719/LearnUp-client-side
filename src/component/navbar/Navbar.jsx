@@ -1,15 +1,13 @@
 import {  NavLink } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
-// import { useState } from "react";
-// import { FaUser } from "react-icons/fa";
-// import { Tooltip } from "react-tooltip";
+
 import logo from '../../assets/img/Blue Elegant Concept Foundation Logo.png'
 import useAxiosSecure from "../../hook/useAxiosSecure";
 
 
 const Navbar = () => {
 
-    // const [isOpen, setIsOpen] = useState(false)
+ 
 
     const {logOut, user} = useAuth()
     const axiosSecure = useAxiosSecure()
@@ -29,7 +27,7 @@ const Navbar = () => {
    !user && <li>    <NavLink  to='/login' >Login </NavLink>  </li>}
 {!user && <li>    <NavLink  to='/registar' >  Register  </NavLink></li>} 
 { user && <li>    <NavLink  to='/create_ass' >  Create Assignmentst </NavLink></li>} 
-{ user && <li>    <NavLink  to='/pending_ass' >  Pending Assignments </NavLink></li>} 
+{ user && <li>    <NavLink  to='/pending' >  Pending Assignments </NavLink></li>} 
 
 
     </div>
@@ -48,7 +46,7 @@ const Navbar = () => {
    </div>
    <a className="  text-[16px] sm:text-2xl font-bold font-playFair -ml-4 sm:-ml-0"> <img src={logo} alt="" className="w-20" /> </a>
  </div>
- <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden -mr-7 lg:mr-24 md:flex"}>
+ <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden -mr-7 mr-1 lg:mr-28 md:flex"}>
    <ul className="menu menu-horizontal px-1">
 
        {nav}

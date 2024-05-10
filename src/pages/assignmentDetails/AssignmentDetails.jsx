@@ -20,6 +20,7 @@ const AssignmentDetails = () => {
     const commonAxiosSecure = useCommonAxios();
     const axiosSecure = useAxiosSecure()
 const {user} = useAuth()
+const {title, description, mark, thumb_img, level, date, name, email} = data;
 
 const formHandle = e => {
     e.preventDefault()
@@ -27,10 +28,12 @@ const formHandle = e => {
     const note = e.target.note.value;
     const examineeName = user.displayName;
     const examineeEmail = user.email;
-    const status = 'pending'
+    const status = 'pending';
+    const marks = mark;
+    const assginmentTitle = title;
     
     console.log(pdfLink, note, examineeEmail, examineeName);
-    const examineInfo = {pdfLink, note,status, examineeEmail, examineeName};
+    const examineInfo = {pdfLink, assginmentTitle, marks, note,status, examineeEmail, examineeName};
 
     console.log(examineInfo);
     axiosSecure.post('/assSubmit', examineInfo)
@@ -54,7 +57,7 @@ if(data.data.acknowledged){
 }
 
 
-    const {title, description, mark, thumb_img, level, date, name, email} = data;
+   
     useEffect(()=>{
 
         commonAxiosSecure(`/update?id=${id}`)

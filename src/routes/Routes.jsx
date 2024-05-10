@@ -8,6 +8,8 @@ import Assignments from "../pages/assignments/Assignments";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import Update from "../pages/update/Update";
 import AssignmentDetails from "../pages/assignmentDetails/AssignmentDetails";
+import Pending from "../pages/pendingPage/Pending";
+import GiveMark from "../pages/giveMark/GiveMark";
 
 
 const router = createBrowserRouter([{
@@ -47,6 +49,14 @@ children: [{
 {
     path:'/assDetails/:id',
     element:<PrivateRoute> <AssignmentDetails></AssignmentDetails></PrivateRoute>
+},
+{
+    path:'/pending',
+    element:<PrivateRoute>    <Pending></Pending>  </PrivateRoute>
+},
+{
+    path:'/giveMark/:id',
+    element:<PrivateRoute>    <GiveMark></GiveMark>  </PrivateRoute>
 }
 
 ]
