@@ -43,7 +43,10 @@ const navigate = useNavigate()
       <button onClick={()=>deleteHandle(_id, email)} className="btn font-poppoins w-1/2 bg-orange-600 text-white flex items-center gap-2">   <MdDeleteForever /> Delete</button>
     </div>
     <hr  className='mt-4'/>
-    <button  className="btn w-full font-poppoins  bg-[#010400] text-white flex items-center gap-2">  <MdSystemUpdateAlt /> View Assignment</button>
+    <button onClick={()=>{
+navigate(`/assDetails/${_id}`)
+
+    }} className="btn w-full font-poppoins  bg-[#010400] text-white flex items-center gap-2">  <MdSystemUpdateAlt /> View Assignment</button>
         </div>
       </div>
     );
