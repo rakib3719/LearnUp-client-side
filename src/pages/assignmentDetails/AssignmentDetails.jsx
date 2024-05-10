@@ -8,6 +8,8 @@ import { MdSave } from "react-icons/md";
 import { FaFilePdf } from "react-icons/fa";
 import { MdNoteAlt } from "react-icons/md";
 import useAuth from "../../hook/useAuth";
+import useAxiosSecure from "../../hook/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const AssignmentDetails = () => {
@@ -16,6 +18,7 @@ const AssignmentDetails = () => {
     const [loading, setLoading] = useState(true)
     console.log(data);
     const commonAxiosSecure = useCommonAxios();
+    const axiosSecure = useAxiosSecure()
 const {user} = useAuth()
 
 const formHandle = e => {
@@ -24,10 +27,30 @@ const formHandle = e => {
     const note = e.target.note.value;
     const examineeName = user.displayName;
     const examineeEmail = user.email;
+    const status = 'pending'
     
     console.log(pdfLink, note, examineeEmail, examineeName);
-    const examineInfo = {pdfLink, note, examineeEmail, examineeName};
+    const examineInfo = {pdfLink, note,status, examineeEmail, examineeName};
+
     console.log(examineInfo);
+    axiosSecure.post('/assSubmit', examineInfo)
+    .then(data => {
+        {
+
+if(data.data.acknowledged){
+
+    Swal.fire({
+        title: 'Successfully Submitted assignment',
+        text: 'Thank You',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+       customClass: 'z-10'
+      });
+      e.target.reset()
+}
+
+        }
+    })
 }
 
 
@@ -96,7 +119,7 @@ const formHandle = e => {
 
         
 <button className="btn bg-[#682a10] ml-4 mb-8 hover:bg-[#3d1707] text-white font-bold py-2 px-4 rounded" onClick={()=>document.getElementById('my_modal_3').showModal()}>    Take assignment </button>
-<dialog id="my_modal_3" className="modal">
+<dialog  id="my_modal_3" className="modal z-0">
   <div className="modal-box">
 
     {/* start */}

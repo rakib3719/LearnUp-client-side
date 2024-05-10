@@ -5,3 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.sweetalert-popup {
+    z-index: 999999 !important; 
+  }
