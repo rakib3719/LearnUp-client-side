@@ -16,6 +16,7 @@ const Assignments = () => {
     const [loading, setLoading] = useState(true)
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth()
+    const [difficultyLevel, setDifficultyLevel] = useState('')
 
 
     const deleteHandle = (id, email)=>{
@@ -97,13 +98,18 @@ const Assignments = () => {
             }
 useEffect(()=>{
 
-commonAxios.get('/assignment')
+commonAxios.get(`/assignment?level=${difficultyLevel}`)
 .then(data=>{
     setAssignmentData(data.data)
     setLoading(false)
 })
 
 },[])
+
+const filterHandle = (level)=>{
+setDifficultyLevel(level)
+
+}
 
 
 
@@ -117,6 +123,44 @@ commonAxios.get('/assignment')
 <span className="loading loading-bars loading-sm"></span>
 <span className="loading loading-bars loading-md"></span>
 <span className="loading loading-bars loading-lg"></span></div>:
+<div>
+
+
+<div  className="flex  justify-end p-2">
+<div>
+<div >
+  <button className="bg-[#074151] px-4 text-center mb-2 text-white rounded py-1">Filter</button>
+</div> 
+<div className="">
+<button onClick={()=>{
+  filterHandle('')
+}} className={  !difficultyLevel ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` } >All</button>
+<button
+ onClick={()=>{
+  filterHandle('easy')
+}}
+
+className={  difficultyLevel === 'easy' ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` }
+
+> Easy </button>
+<button onClick={()=>{
+  filterHandle('medium')
+}} 
+className={  difficultyLevel === 'medium' ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` }
+
+> Medium </button>
+<button 
+
+onClick={()=>{
+  filterHandle('hard')
+}}
+
+className={  difficultyLevel === 'hard' ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` }
+> Hard </button>
+
+</div>
+</div>
+</div>
 <div className="grid  md:grid-cols-2 gap-8 lg:grid-cols-3">
 {
 
@@ -129,7 +173,11 @@ commonAxios.get('/assignment')
 
 ></AssignmentCard>)
 }
-</div>}
+</div>
+
+</div>
+
+}
        </div>
   );
     
