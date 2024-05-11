@@ -4,14 +4,15 @@ import { ToastContainer, toast} from "react-toastify";
 import loginImg from '../../assets/img/Group.png'
 import useAuth from "../../hook/useAuth";
 import useAxiosSecure from "../../hook/useAxiosSecure";
+import useTheme from "../../hook/useTheme";
 
 
 const Login = () => {
 
 const axiosSecure = useAxiosSecure()
-    const {login, loginWithGoogle, loginWithTwiter} = useAuth()
+    const {login, loginWithGoogle} = useAuth()
 
-
+const {isDarkMode} = useTheme()
 
 
     const googleLogin = ()=> {
@@ -32,17 +33,7 @@ const axiosSecure = useAxiosSecure()
         })
     }
     
-    const twiterLogin = ()=> {
-      loginWithTwiter()
-      .then(result => {
-          console.log(result);
-          toast("Login Successfully")
-          // setTimeout(()=> { navigate(currentLocation.state)}, 2000)
-      })
-      .catch(error => {
-          toast.error(error.message)
-      })
-    }
+  
 
 
 
@@ -52,7 +43,16 @@ const axiosSecure = useAxiosSecure()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        if(password.length < 6){
+            toast.error("Password should be at least 6 characters");
+            return
+              }
+
+        if(!/^(?=.*[A-Z])(?=.*[a-z]).+$/.test(password)){
+ toast.error("Password Must have a Lowercase and a Uppercase letter");
+ return
+        }
+
         login(email, password)
         .then(result => {
             console.log(result);
@@ -60,7 +60,7 @@ const axiosSecure = useAxiosSecure()
     
 
             toast("Login Successfully")
-            axiosSecure.post('/jwt', email)
+            axiosSecure.post('/jwt', {email})
             .then(data => console.log(data.data))
         
             // setTimeout(()=> { navigate(currentLocation.state)}, 2000)
@@ -94,16 +94,16 @@ const axiosSecure = useAxiosSecure()
 
 
     return (
-        <div className="bg-gray-300 p-4"> 
+        <div className={`${!isDarkMode && 'bg-gray-300'} rounded-md p-4`}> 
              <ToastContainer></ToastContainer>
-        {/* <Navbar></Navbar> */}
-          <div  className="loginbg md:flex justify-between pt-20 pb-20">
+      
+          <div  className="loginbg md:flex gap-8 justify-between pt-20 pb-20">
       <div>
 
         <img src={loginImg} alt="" />
       </div>
      
-            <div className="login mx-auto md:w-1/2 md:ml-auto p-8  bg-white md:mr-16  rounded-lg shadow-lg ">
+            <div className={` mx-auto ${!isDarkMode ? 'bg-white ': 'border shadow-lg'} p-4 rounded-lg md:w-[650px] md:mr-8   `}>
       
             <form onSubmit={loginHandle} >
       
@@ -143,10 +143,7 @@ const axiosSecure = useAxiosSecure()
       
       
       <button onClick={googleLogin} className="btn justify-center flex gap-2 py-2 items-center bg-[#357488] sm:max-w-xs sm:w-auto  rounded-full w-full text-white  hover:bg-[#4595ae] mt-2  px-10 mr-3" > <FaGoogle></FaGoogle>  Goggle </button>
-      <button onClick={twiterLogin} className="btn text-white sm:w-auto justify-center flex gap-2 py-2 items-center  bg-blue-900 px-10 w-full mt-2 sm:max-w-xs  font-bold rounded-full">  <FaTwitter></FaTwitter>
-      
-      Twitter
-      </button>
+  
       </div>
             <p className="text-center mt-2">Don't  have any account? Please <Link to={'/registar'} className="text-[#4f847b] font-bold underline text-lg"> Registar </Link></p>
             </div>

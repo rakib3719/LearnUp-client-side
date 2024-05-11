@@ -104,7 +104,7 @@ commonAxios.get(`/assignment?level=${difficultyLevel}`)
     setLoading(false)
 })
 
-},[])
+},[difficultyLevel])
 
 const filterHandle = (level)=>{
 setDifficultyLevel(level)

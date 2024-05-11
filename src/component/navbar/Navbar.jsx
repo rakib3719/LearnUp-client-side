@@ -1,13 +1,15 @@
-import {  NavLink } from "react-router-dom";
+import {  NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 
 import logo from '../../assets/img/Blue Elegant Concept Foundation Logo.png'
 import useAxiosSecure from "../../hook/useAxiosSecure";
 
+import Theme from "../themeController/Theme";
+
 
 const Navbar = () => {
 
- 
+ const navigate = useNavigate()
 
     const {logOut, user} = useAuth()
     const axiosSecure = useAxiosSecure()
@@ -28,6 +30,7 @@ const Navbar = () => {
 {!user && <li>    <NavLink  to='/registar' >  Register  </NavLink></li>} 
 { user && <li>    <NavLink  to='/create_ass' >  Create Assignmentst </NavLink></li>} 
 { user && <li>    <NavLink  to='/pending' >  Pending Assignments </NavLink></li>} 
+<Theme></Theme>
 
 
     </div>
@@ -86,7 +89,7 @@ const Navbar = () => {
             tabIndex={0}
             className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
           >
-            <li>
+            <li onClick={()=> navigate('/myAssignment')} >
               <div className='bg-gray-200 btn font-raleway  text-center '>My Attempted Assignments</div>
             </li>
            

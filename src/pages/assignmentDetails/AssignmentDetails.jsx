@@ -10,9 +10,14 @@ import { MdNoteAlt } from "react-icons/md";
 import useAuth from "../../hook/useAuth";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import Swal from "sweetalert2";
+import useTheme from "../../hook/useTheme";
+
 
 
 const AssignmentDetails = () => {
+
+
+  const {isDarkMode} = useTheme()
     const {id} = useParams();
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
@@ -93,8 +98,8 @@ if(data.data.acknowledged){
             }
         
     return (
-        <div className=" rounded-md font-raleway flex flex-col justify-between bg-gray-100">
-      <div className="bg-[#682a10] py-4 px-4">
+        <div className={` rounded-md font-raleway flex flex-col justify-between  ${!isDarkMode ? 'bg-gray-100' : 'rounded-none border-[#07192a] border-8'}  `}>
+      <div className={`${!isDarkMode ?'bg-[#682a10] ': 'bg-[#07192a]' }  py-4 px-4`}>
    
           <ul className="sm:flex  justify-between items-center text-white">
             <li>Created By {name}</li>
@@ -104,8 +109,8 @@ if(data.data.acknowledged){
         
       </div>
 
-      <div className="container  mx-auto px-2 sm:px-8 my-8">
-        <div  className="bg-white   md:p-16 rounded-lg shadow-md">
+      <div className={`container ${isDarkMode && 'border '}  mx-auto px-2 sm:px-8 my-8`}>
+        <div  className={`${!isDarkMode && 'bg-white'}   md:p-16 rounded-lg shadow-md`}>
           <div className="md:flex items-center p-6 mb:p-0 mb-8">
             <img src={img}alt="Thumbnail" className=" rounded-lg mr-8 shadow-md md:w-48 md:h-48" />
             <div className="mt-8">
@@ -115,7 +120,7 @@ if(data.data.acknowledged){
               <p className="text-gray-600 font-work-sense">Due Date: {date}</p>
             </div>
           </div>
-          <p className="mb-4 px-6 mb:px-0 text-gray-800">Description: {description}</p>
+          <p className={`mb-4 px-6 mb:px-0 ${!isDarkMode && 'text-gray-800'}`}>Description: {description}</p>
           
           
 
@@ -125,8 +130,8 @@ if(data.data.acknowledged){
 <dialog  id="my_modal_3" className="modal z-0">
   <div className="modal-box">
 
-    {/* start */}
-<div  className=" mx-auto mt-8 bg-[#F1F8E9] py-8 border rounded px-2 ">
+ 
+<div  className={` mx-auto mt-8 ${!isDarkMode ? 'bg-[#F1F8E9]': 'bg-[#0a071b]'} py-8 border rounded px-2 `}>
          
       <form  onSubmit={formHandle}>
 

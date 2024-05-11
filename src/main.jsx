@@ -6,14 +6,18 @@ import router from './routes/Routes'
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './provider/authProvider/AuthProvider'
 import { ChakraProvider } from '@chakra-ui/react'
+import ThemeControll from './component/themeController/ThemeControll'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 <AuthProvider>
-<ChakraProvider>
+<ThemeControll>
+
 <RouterProvider router={router} ></RouterProvider>
-    </ChakraProvider>
+
+</ThemeControll>
+   
 
 </AuthProvider>
   </React.StrictMode>,

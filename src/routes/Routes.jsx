@@ -10,6 +10,7 @@ import Update from "../pages/update/Update";
 import AssignmentDetails from "../pages/assignmentDetails/AssignmentDetails";
 import Pending from "../pages/pendingPage/Pending";
 import GiveMark from "../pages/giveMark/GiveMark";
+import MyAssignment from "../pages/myAtteptedAssignment/MyAssignment";
 
 
 const router = createBrowserRouter([{
@@ -57,6 +58,10 @@ children: [{
 {
     path:'/giveMark/:id',
     element:<PrivateRoute>    <GiveMark></GiveMark>  </PrivateRoute>
+},
+{
+    path:'/myAssignment',
+    element:<PrivateRoute>    <MyAssignment></MyAssignment>  </PrivateRoute>
 }
 
 ]

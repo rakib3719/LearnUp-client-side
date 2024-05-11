@@ -2,10 +2,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import regBg from '../../../assets/img/Animation.png'
 import useAuth from "../../../hook/useAuth";
+import useAxiosSecure from "../../../hook/useAxiosSecure";
+import useTheme from "../../../hook/useTheme";
 
 
 
 const Registar = () => {
+
+
+    const {isDarkMode} = useTheme()
+
+    const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
     
 const {registar, updateUser} = useAuth()
@@ -19,7 +26,12 @@ const {registar, updateUser} = useAuth()
         registar(email,password)
 .then(result => {
 
-    console.log(result.user);
+
+    const email = result.user.email
+
+    axiosSecure.post('/jwt', {email})
+    .then(data => console.log(data.data))
+
     updateUser(name, photo)
     .then(() => {
         // Profile updated!
@@ -75,14 +87,14 @@ const {registar, updateUser} = useAuth()
  
              
            <ToastContainer></ToastContainer> 
-           <div  className="bg-gray-300 gap-16 md:flex items-center pt-20 pb-20">
+        <div  className={`${!isDarkMode && 'bg-gray-300'} gap-16 md:flex items-center pt-20 pb-20`}>
       <div className="md:1/2 regbg" >
 <img src={regBg} alt="" />
 
       </div>
 
 
-      <div className=" mx-auto bg-white p-4 rounded-lg  max-w-[1620px]  md:w-1/2 md:ml-auto   md:mr-16 ">
+      <div className={` mx-auto ${!isDarkMode ? 'bg-white ': 'border shadow-lg'} p-4 rounded-lg md:w-[800px] md:mr-8   `}>
 
       <form onSubmit={ regiHandle} >
 

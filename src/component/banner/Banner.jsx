@@ -1,9 +1,14 @@
 
+
+
 import bannerImg from '../../assets/img/5437683_1-removebg-preview.png'
+import useTheme from '../../hook/useTheme';
+
 const Banner = () => {
+	const {isDarkMode} = useTheme()
     return (
-        <div>
-         <section className="dark:bg-gray-100 rounded-md dark:text-gray-800">
+        <div  className=''>
+ <div className={` ${!isDarkMode ? 'bg-gray-100 ': 'border text-white'}  rounded-md text-gray-800`}>
 	<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
 			<h1 className="  text-3xl md:text-5xl font-bold leading-none sm:text-6xl">Start 
@@ -21,7 +26,7 @@ const Banner = () => {
 			<img src={bannerImg} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
 		</div>
 	</div>
-</section>
+</div>
         </div>
     );
 };
