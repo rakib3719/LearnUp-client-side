@@ -11,60 +11,67 @@ import AssignmentDetails from "../pages/assignmentDetails/AssignmentDetails";
 import Pending from "../pages/pendingPage/Pending";
 import GiveMark from "../pages/giveMark/GiveMark";
 import MyAssignment from "../pages/myAtteptedAssignment/MyAssignment";
+import Errror from "../pages/error/Errror";
 
 
 const router = createBrowserRouter([{
 
-path: '/',
-element: <Root></Root>,
-children: [{
+    path: '/',
+    element: <Root></Root>,
+    errorElement:<Errror></Errror>,
+    children: [{
 
-    path:'/login',
-    element: <Login></Login>
-},
+        path: '/login',
+        element: <Login></Login>
+    },
 
-{
-    path: '/registar',
-    element: <Registar></Registar>
-},{
+    {
+        path: '/registar',
+        element: <Registar></Registar>
+    }, {
 
-    path:'/',
-    element: <Home></Home>
-},
+        path: '/',
+        element: <Home></Home>
+    },
 
-{
-    path:'/create_ass',
-    element:<PrivateRoute><CreateAssinment></CreateAssinment></PrivateRoute>
-},
-{
-    path:'/assignment',
-    element: <Assignments></Assignments>
-},
-{
-    path:'/update/:id',
-    element: <Update></Update>
+    {
+        path: '/create_ass',
+        element: <PrivateRoute><CreateAssinment></CreateAssinment></PrivateRoute>
+    },
+    {
+        path: '/assignment',
+        element: <Assignments></Assignments>
+    },
+    {
+        path: '/update/:id',
+        element: <Update></Update>
 
-    
-},
 
-{
-    path:'/assDetails/:id',
-    element:<PrivateRoute> <AssignmentDetails></AssignmentDetails></PrivateRoute>
-},
-{
-    path:'/pending',
-    element:<PrivateRoute>    <Pending></Pending>  </PrivateRoute>
-},
-{
-    path:'/giveMark/:id',
-    element:<PrivateRoute>    <GiveMark></GiveMark>  </PrivateRoute>
-},
-{
-    path:'/myAssignment',
-    element:<PrivateRoute>    <MyAssignment></MyAssignment>  </PrivateRoute>
-}
+    },
 
-]
+    {
+        path: '/assDetails/:id',
+        element: <PrivateRoute> <AssignmentDetails></AssignmentDetails></PrivateRoute>
+    },
+    {
+        path: '/pending',
+        element: <PrivateRoute>    <Pending></Pending>  </PrivateRoute>
+    },
+    {
+        path: '/giveMark/:id',
+        element: <PrivateRoute>
+            <GiveMark></GiveMark>
+        </PrivateRoute>
+    },
+    {
+        path: '/myAssignment',
+        element: <PrivateRoute>
+            <MyAssignment></MyAssignment>
+
+        </PrivateRoute>
+    }
+
+    ]
 
 }])
 
