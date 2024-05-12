@@ -4,6 +4,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
 
 
 
@@ -32,7 +33,12 @@ const navigate = useNavigate()
 
         const date = startDate.toLocaleDateString() || date;
 
-      
+       
+        if (/^[0-2]?[0-9]$/.test(mark)) {
+            toast.error('Please provide a value of at least 30 marks.')
+            return;
+        }
+
         const assinmentInfo = {title, description, mark, thumb_img, level, date}
 
         console.log(assinmentInfo);
@@ -59,9 +65,9 @@ const navigate = useNavigate()
                 Swal.fire({
                     position: "center",
                     icon: "error",
-                    title: "Please Update anything",
-                    showConfirmButton: false,
-                    timer: 1500
+                    title: "You haven't updated anything.",
+                  
+                    
                   });
 
             }
@@ -91,7 +97,7 @@ setLoading(false)
   
     return (
         <div  className="bg-[#201b6e59] rounded-md mt-8">
-         
+         <ToastContainer></ToastContainer>
         <div   className="p-4 sm:p-12">   
 
 <div  className="add-form-bg  bg-[#57606f] rounded  border  mx-auto p-4 md:p-8 ">
@@ -153,7 +159,7 @@ setLoading(false)
 
 <label className="form-control w-full ">
 <div className="label">
-<span className="label-text text-white font-semibold">Level</span>
+<span className="label-text text-white font-semibold"> Assignment Difficulty Level</span>
 
 </div>
 

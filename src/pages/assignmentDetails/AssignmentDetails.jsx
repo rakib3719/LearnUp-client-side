@@ -11,6 +11,7 @@ import useAuth from "../../hook/useAuth";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import Swal from "sweetalert2";
 import useTheme from "../../hook/useTheme";
+import { ToastContainer, toast } from "react-toastify";
 
 
 
@@ -47,13 +48,16 @@ const formHandle = e => {
 
 if(data.data.acknowledged){
 
-    Swal.fire({
-        title: 'Successfully Submitted assignment',
-        text: 'Thank You',
-        icon: 'success',
-        confirmButtonText: 'Ok',
-       customClass: 'z-10'
-      });
+    // Swal.fire({
+    //     title: 'Successfully Submitted assignment',
+    //     text: 'Thank You',
+    //     icon: 'success',
+    //     confirmButtonText: 'Ok',
+    //    customClass: 'z-10'
+    //   });
+
+
+    toast.success('Successsfully submitted')
       e.target.reset()
 }
 
@@ -98,7 +102,7 @@ if(data.data.acknowledged){
             }
         // bg-[#4F847B]
     return (
-        <div className={` rounded-md font-raleway flex flex-col justify-between  ${!isDarkMode ? 'bg-gray-100' : 'rounded-none border-[#07192a] border-8'}  `}>
+        <div className={` rounded-md mt-6 font-raleway flex flex-col justify-between  ${!isDarkMode ? 'bg-gray-100' : 'rounded-none border-[#07192a] border-8'}  `}>
       <div className={`${!isDarkMode ?'bg-[#4F847B] ': 'bg-[#07192a]' }  py-4 px-4`}>
    
           <ul className="sm:flex  justify-between items-center text-white">
@@ -115,7 +119,7 @@ if(data.data.acknowledged){
             <img src={thumb_img}alt="Thumbnail" className=" rounded-lg mr-8 shadow-md md:w-48 md:h-48" />
             <div className="mt-8">
               <h1 className="text-3xl font-bold mb-2">{title}</h1>
-              <p className="text-gray-600 badge px-4 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Level: {level}</p>
+              <p className="font-semibold italic text-orange-500 py-2  text-xl ">Level: {level}</p>
               <p className="text-gray-600">Marks: {mark}</p>
               <p className="text-gray-600 font-work-sense">Due Date: {date}</p>
             </div>
@@ -126,13 +130,14 @@ if(data.data.acknowledged){
 
 
         
-<button className="btn bg-[#4F847B] ml-4 mb-8 hover:bg-[#3d1707] text-white font-bold py-2 px-4 rounded" onClick={()=>document.getElementById('my_modal_3').showModal()}>    Take assignment </button>
+<button className="btn bg-[#4F847B] ml-4 mb-8 hover:bg-[#12302b] text-white font-bold py-2 px-4 rounded" onClick={()=>document.getElementById('my_modal_3').showModal()}>    Take assignment </button>
+
 <dialog  id="my_modal_3" className="modal z-0">
   <div className="modal-box">
 
  
 <div  className={` mx-auto mt-8 ${!isDarkMode ? 'bg-[#F1F8E9]': 'bg-[#0a071b]'} py-8 border rounded px-2 `}>
-         
+         <ToastContainer   className='mt-20'></ToastContainer>
       <form  onSubmit={formHandle}>
 
     <h1 className="text-[#4F847B] flex gap-2 font-bold text-lg items-center pl-4">    <GrDocumentUpdate />Submit your Assignment</h1>
@@ -156,7 +161,7 @@ if(data.data.acknowledged){
 </div>
 
 <div className="col-span-3">
-<input name="pdf"  type="text" placeholder="Type here" className="input input-bordered mt-6 w-full bg-[#dcedc8]"  required/>
+<input  name="pdf"  type="text" placeholder="Type here" className="input input-bordered mt-6 w-full bg-[#dcedc8]"  required/>
 
 </div>
 
@@ -191,16 +196,15 @@ if(data.data.acknowledged){
 
  <div  className="">
 
-<form method="dialog">
 
-<button   className="flex text-white ml-auto  items-center font-bold font-workSense  gap-2 bg-[#4F847B] hover:bg-[#431907]  mt-4 text-right  btn">
+<button   className="flex text-white ml-auto  items-center font-bold font-workSense  gap-2 bg-[#4F847B] hover:bg-[#12302b]  mt-4 text-right  btn">
 
 <MdSave  className="text-white flex text-3xl   "/>
 <span >    Submit </span>
 </button>
 
 
-</form>
+
  </div>
 
 
@@ -228,3 +232,5 @@ if(data.data.acknowledged){
 };
 
 export default AssignmentDetails;
+
+

@@ -115,7 +115,7 @@ const CreateAssinment = () => {
 
                             <label className="form-control w-full ">
                                 <div className="label">
-                                    <span className="label-text text-white font-semibold">Level</span>
+                                    <span className="label-text text-white font-semibold"> Assignment Difficulty Level</span>
 
                                 </div>
 
