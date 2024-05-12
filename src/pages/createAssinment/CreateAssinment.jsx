@@ -12,7 +12,7 @@ const CreateAssinment = () => {
     const [startDate, setStartDate] = useState(new Date());
     const axiosSecure = useAxiosSecure()
     const {user} = useAuth();
-    console.log(user);
+   
 
     const foromHandle = e =>{
        
@@ -34,7 +34,7 @@ if(/^[0-2]?[0-9]$/.test(mark)){
       
         const assinmentInfo = {title, description, mark, thumb_img, level, date, name, email}
         axiosSecure.post('/createAss',assinmentInfo )
-        .then(data => {console.log(data.data)
+        .then(data => {
 
 if(data.data.acknowledged){
     Swal.fire({
