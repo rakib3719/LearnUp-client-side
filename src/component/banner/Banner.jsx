@@ -7,14 +7,14 @@ import useTheme from '../../hook/useTheme';
 const Banner = () => {
 	const {isDarkMode} = useTheme()
     return (
-        <div  className=''>
+        <div  className='mt-8'>
  <div className={` ${!isDarkMode ? 'bg-gray-100 ': 'border text-white'}  rounded-md text-gray-800`}>
 	<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
 			<h1 className="  text-3xl md:text-5xl font-bold leading-none sm:text-6xl">Start 
 				<span className="dark:text-[#C24914]">learning </span>with us now!
 			</h1>
-			<p className="mt-6 mb-8 text-lg sm:mb-12">Begin your educational voyage with our comprehensive platform! Explore varied assignments 
+			<p className="mt-6 mb-8 sm:text-lg sm:mb-12">Begin your educational voyage with our comprehensive platform! Explore varied assignments 
 				<br  className="hidden md:inline lg:hidden" /> tailored to improve your skills and foster success.
 			</p>
 			<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">

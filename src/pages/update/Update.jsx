@@ -90,7 +90,7 @@ setLoading(false)
     }
   
     return (
-        <div  className="bg-[#201b6e59] rounded-md">
+        <div  className="bg-[#201b6e59] rounded-md mt-8">
          
         <div   className="p-4 sm:p-12">   
 

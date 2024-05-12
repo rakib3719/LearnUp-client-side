@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hook/useAuth";
+import { ToastContainer, toast } from "react-toastify";
 
 
 const CreateAssinment = () => {
@@ -26,7 +27,10 @@ const CreateAssinment = () => {
         const email = user.email
 
         const date = startDate.toLocaleDateString();
-
+if(/^[0-2]?[0-9]$/.test(mark)){
+  toast.error('Please provide a value of at least 30 marks.')
+    return;
+}
       
         const assinmentInfo = {title, description, mark, thumb_img, level, date, name, email}
         axiosSecure.post('/createAss',assinmentInfo )
@@ -47,8 +51,9 @@ if(data.data.acknowledged){
     }
  
     return (
-        <div  className="bg-[#362417] rounded-md">
+        <div  className="bg-[#362417] mt-12 rounded-md">
          
+         <ToastContainer></ToastContainer>
            <div   className="p-4 sm:p-12">   
 
 <div  className="add-form-bg  bg-gray-500 rounded  border  mx-auto p-4 md:p-8 ">
@@ -64,7 +69,7 @@ if(data.data.acknowledged){
 <span className="label-text  text-white font-semibold">Assignment  Title</span>
 
 </div> 
-<input  type="text" name="title" placeholder="Type here Assignment title" className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]" />
+<input required  type="text" name="title" placeholder="Type here Assignment title" className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]" />
 <div className="label">
 
 </div>
@@ -76,7 +81,7 @@ if(data.data.acknowledged){
 
 </div>
 
-<textarea name="description" placeholder="Type here Description"  className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]">
+<textarea required name="description" placeholder="Type here Description"  className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]">
 
 </textarea>
 
@@ -102,7 +107,7 @@ if(data.data.acknowledged){
 <span className="label-text text-white font-semibold">Marks</span>
 
 </div>
-<input type="number" name="mark" placeholder="Type here Marks" className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]" />
+<input type="number" required name="mark" placeholder="Type here Marks" className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]" />
 <div className="label">
 
 </div>
@@ -114,7 +119,7 @@ if(data.data.acknowledged){
 
 </div>
 
-<select name="level" className="input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-[10px] border-2 border-[#EFEFEF]" id="">
+<select required name="level" className="input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-[10px] border-2 border-[#EFEFEF]" id="">
 
 <option value="easy"> Easy </option>
 <option value="medium"> Medium</option>
@@ -139,7 +144,7 @@ if(data.data.acknowledged){
 
 </div>
 
-<input type="text" name="photo" placeholder="Type here Photo URL" className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]" />
+<input required type="text" name="photo" placeholder="Type here Photo URL" className="input input-add input-bordered placeholder-[#EFEFEF] rounded-2xl mt-2  w-full bg-transparent outline-none px-2 py-2 border-2 border-[#EFEFEF]" />
 <div className="label">
 
 </div>

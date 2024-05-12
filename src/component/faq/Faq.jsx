@@ -5,12 +5,12 @@ const Faq = () => {
 const {isDarkMode} = useTheme()
 
     return (
-        <div id="faq" className="mt-8 font-raleway">
+        <div id="faq" className="font-raleway mt-28">
             <section className={`${!isDarkMode ? 'b' : 'bo rounded'} da0`}>
 	<div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-		<h2 className="text-2xl font-semibold sm:text-4xl">Frequently Asked Questions</h2>
-		<p className="mt-4 mb-8 dark:text-gray-600">Sagittis tempor donec id vestibulum viverra. Neque condimentum primis orci at lacus amet bibendum.</p>
-		<div className="space-y-4">
+		<h2 className="text-2xl text-center font-semibold sm:text-4xl">Frequently Asked Questions</h2>
+		<p className="mt-4 mb-8 text-center dark:text-gray-600">Sagittis tempor donec id vestibulum viverra. Neque condimentum primis orci at lacus amet bibendum.</p>
+		<div className="space-y-4  border p-4 sm:p-8 md:p-12 rounded-lg">
 			<details className="w-full border rounded-lg">
 				<summary className="px-4 py-6 focus:outline-none focus-visible:dark:ring-violet-600">How do I submit an assignment on this platform?</summary>
 				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-600">To submit an assignment, you need to first create an account and log in. Once logged in, navigate to the "View Assignment"  section where you can upload your assignment file along with any additional details or instructions provided by your instructor. After submission, you will receive a confirmation message, and your assignment will be marked as pending until it is reviewed by the respective evaluator. </p>

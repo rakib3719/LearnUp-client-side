@@ -83,18 +83,18 @@ const {registar, updateUser} = useAuth()
     }
 
     return (
-        <div>
+        <div  className="mt-16">
  
              
            <ToastContainer></ToastContainer> 
         <div  className={`${!isDarkMode && 'bg-gray-300'} gap-16 md:flex items-center pt-20 pb-20`}>
-      <div className="md:1/2 regbg" >
+      <div className="md:1/2 hidden md:flex" >
 <img src={regBg} alt="" />
 
       </div>
 
 
-      <div className={` mx-auto ${!isDarkMode ? 'bg-white ': 'border shadow-lg'} p-4 rounded-lg md:w-[800px] md:mr-8   `}>
+      <div className={` mx-auto  ${!isDarkMode ? 'bg-white ': 'border shadow-lg'} w-[94%] sm:w-[80%] mx-auto p-4 rounded-lg md:w-[800px] md:mr-8   `}>
 
       <form onSubmit={ regiHandle} >
 

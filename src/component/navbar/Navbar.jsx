@@ -39,7 +39,7 @@ const Navbar = () => {
 
     return (
         <div   className="navbar   z-10 relative">
-          <div  className="fixed right-0 top-12"><Theme></Theme></div>
+          <div  className="absolute right-3 top-24 lg:top-28"><Theme></Theme></div>
         <div className="navbar ">
  <div className="navbar-start">
    <div className="dropdown">

@@ -4,6 +4,7 @@ import AssignmentCard from "../../component/assignmentCard/AssignmentCard";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import useAuth from "../../hook/useAuth";
 import Swal from "sweetalert2";
+import useTheme from "../../hook/useTheme";
 
 
 
@@ -17,7 +18,7 @@ const Assignments = () => {
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth()
     const [difficultyLevel, setDifficultyLevel] = useState('')
-
+const {isDarkMode }= useTheme()
 
     const deleteHandle = (id, email)=>{
 
@@ -96,6 +97,7 @@ const Assignments = () => {
           });
         
             }
+       
 useEffect(()=>{
 
 commonAxios.get(`/assignment?level=${difficultyLevel}`)
@@ -116,7 +118,7 @@ setDifficultyLevel(level)
     return (
        <div>
 
-<h1  className="text-center">All Assignment here</h1>
+<h1  className="text-center font-raleway font-bold text-3xl mt-8 mb-8">Access all assignments here</h1>
 
 
 {loading?<div  className="text-center flex mt-32 items-center justify-center w-[100%]"> <span className="loading loading-bars loading-xs"></span>
@@ -134,19 +136,19 @@ setDifficultyLevel(level)
 <div className="">
 <button onClick={()=>{
   filterHandle('')
-}} className={  !difficultyLevel ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` } >All</button>
+}} className={  !difficultyLevel ? `  bg-[#C24914] border px-4 text-center mb-2 text-white border-r py-1` : `   bg-transparent] px-4 text-center mb-2  ${isDarkMode ? 'text-white': 'text-black'} border py-1` } >All</button>
 <button
  onClick={()=>{
   filterHandle('easy')
 }}
 
-className={  difficultyLevel === 'easy' ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` }
+className={  difficultyLevel === 'easy' ? `  bg-[#C24914] border px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 ${isDarkMode ? 'text-white': 'text-black'} border py-1` }
 
 > Easy </button>
 <button onClick={()=>{
   filterHandle('medium')
 }} 
-className={  difficultyLevel === 'medium' ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` }
+className={  difficultyLevel === 'medium' ? `  bg-[#C24914] border px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2  ${isDarkMode ? 'text-white': 'text-black'}  border py-1` }
 
 > Medium </button>
 <button 
@@ -155,7 +157,7 @@ onClick={()=>{
   filterHandle('hard')
 }}
 
-className={  difficultyLevel === 'hard' ? `  bg-[#C24914] px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2 text-black  border py-1` }
+className={  difficultyLevel === 'hard' ? `  bg-[#C24914] border px-4 text-center mb-2 text-white border-r py-1` : `  bg-transparent] px-4 text-center mb-2  ${isDarkMode ? 'text-white': 'text-black'} border py-1` }
 > Hard </button>
 
 </div>

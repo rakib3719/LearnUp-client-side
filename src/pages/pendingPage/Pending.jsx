@@ -18,7 +18,12 @@ commonAxios('/pending')
 },[])
 
     return (
+
+    
+
         <div>
+
+          <h1 className="text-center font-bold font-raleway text-xl md:text-3xl mt-8 mb-8">All Pending Assignment Here</h1>
            <div className="overflow-x-auto">
   <table className="table  table-xs sm:table-sm md:table-md lg:table-lg border border-gray-300 ">
     {/* head */}

@@ -5,13 +5,14 @@ import { MdSystemUpdateAlt } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import { FaCalendar, FaMarker } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import useTheme from '../../hook/useTheme';
 
 
 
 const AssignmentCard = ({assignMentData, deleteHandle}) => {
 const navigate = useNavigate()
     const {title, description, mark,email,_id, thumb_img, level, date} = assignMentData;
- 
+ const {isDarkMode} = useTheme()
 
     return ( 
         <div className="card card-compact  bg-base-100 border  " >
@@ -46,7 +47,7 @@ const navigate = useNavigate()
     <button onClick={()=>{
 navigate(`/assDetails/${_id}`)
 
-    }} className="btn w-full font-poppoins  bg-transparent  text-black    border-4 flex items-center gap-2">  <MdSystemUpdateAlt /> View Assignment</button>
+    }} className="btn w-full font-poppoins  bg-gray-200 text-black     flex items-center gap-2">  <MdSystemUpdateAlt /> View Assignment</button>
         </div>
       </div>
     );

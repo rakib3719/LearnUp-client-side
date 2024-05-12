@@ -94,13 +94,13 @@ const {isDarkMode} = useTheme()
 
 
     return (
-        <div className={`${!isDarkMode && 'bg-gray-300'} rounded-md p-4`}> 
+        <div className={`${!isDarkMode && 'bg-gray-300'} mt-12 rounded-md p-4`}> 
              <ToastContainer></ToastContainer>
       
           <div  className="loginbg md:flex gap-8 justify-between pt-20 pb-20">
-      <div>
+      <div className="hidden md:flex">
 
-        <img src={loginImg} alt="" />
+        <img src={loginImg} alt="" className="" />
       </div>
      
             <div className={` mx-auto ${!isDarkMode ? 'bg-white ': 'border shadow-lg'} p-4 rounded-lg md:w-[650px] md:mr-8   `}>
