@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useCommonAxios from "../../hook/useCommonAxios";
-import img from '../../assets/img/5437683 1.png'
+
 import { ColorRing } from "react-loader-spinner";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { MdSave } from "react-icons/md";
@@ -96,10 +96,10 @@ if(data.data.acknowledged){
                   ></ColorRing>
                     </div>
             }
-        
+        // bg-[#4F847B]
     return (
         <div className={` rounded-md font-raleway flex flex-col justify-between  ${!isDarkMode ? 'bg-gray-100' : 'rounded-none border-[#07192a] border-8'}  `}>
-      <div className={`${!isDarkMode ?'bg-[#682a10] ': 'bg-[#07192a]' }  py-4 px-4`}>
+      <div className={`${!isDarkMode ?'bg-[#4F847B] ': 'bg-[#07192a]' }  py-4 px-4`}>
    
           <ul className="sm:flex  justify-between items-center text-white">
             <li>Created By {name}</li>
@@ -109,10 +109,10 @@ if(data.data.acknowledged){
         
       </div>
 
-      <div className={`container ${isDarkMode && 'border '}  mx-auto px-2 sm:px-8 my-8`}>
-        <div  className={`${!isDarkMode && 'bg-white'}   md:p-16 rounded-lg shadow-md`}>
+      <div className={`container   mx-auto px-2 sm:px-8 my-8`}>
+        <div  className={`${!isDarkMode && 'bg-white shadow-md'}   md:p-16 rounded-lg `}>
           <div className="md:flex items-center p-6 mb:p-0 mb-8">
-            <img src={img}alt="Thumbnail" className=" rounded-lg mr-8 shadow-md md:w-48 md:h-48" />
+            <img src={thumb_img}alt="Thumbnail" className=" rounded-lg mr-8 shadow-md md:w-48 md:h-48" />
             <div className="mt-8">
               <h1 className="text-3xl font-bold mb-2">{title}</h1>
               <p className="text-gray-600 badge px-4 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Level: {level}</p>
@@ -126,7 +126,7 @@ if(data.data.acknowledged){
 
 
         
-<button className="btn bg-[#682a10] ml-4 mb-8 hover:bg-[#3d1707] text-white font-bold py-2 px-4 rounded" onClick={()=>document.getElementById('my_modal_3').showModal()}>    Take assignment </button>
+<button className="btn bg-[#4F847B] ml-4 mb-8 hover:bg-[#3d1707] text-white font-bold py-2 px-4 rounded" onClick={()=>document.getElementById('my_modal_3').showModal()}>    Take assignment </button>
 <dialog  id="my_modal_3" className="modal z-0">
   <div className="modal-box">
 
@@ -135,7 +135,7 @@ if(data.data.acknowledged){
          
       <form  onSubmit={formHandle}>
 
-    <h1 className="text-[#682a10] flex gap-2 font-bold text-lg items-center pl-4">    <GrDocumentUpdate />Submit your Assignment</h1>
+    <h1 className="text-[#4F847B] flex gap-2 font-bold text-lg items-center pl-4">    <GrDocumentUpdate />Submit your Assignment</h1>
 
     <hr />
 
@@ -151,7 +151,7 @@ if(data.data.acknowledged){
 
 
 <div className="flex gap-2 sm:flex    items-center flex-row ">
-<FaFilePdf className="text-[#682a10] text-3xl   "/>
+<FaFilePdf className="text-[#4F847B] text-3xl   "/>
 <h1 className="sm:text-xl font-bold font-workSense   px-2"> Assignment PDF/Doc Link</h1>
 </div>
 
@@ -169,7 +169,7 @@ if(data.data.acknowledged){
 
 
 <div className="flex gap-2 sm:flex    items-center flex-row ">
-<MdNoteAlt className="text-[#682a10] text-3xl   "/>
+<MdNoteAlt className="text-[#4F847B] text-3xl   "/>
 <h1 className="sm:text-xl font-bold font-workSense   px-2"> Note</h1>
 </div>
 
@@ -191,12 +191,16 @@ if(data.data.acknowledged){
 
  <div  className="">
 
- <button  className="flex text-white ml-auto  items-center font-bold font-workSense  gap-2 bg-[#682a10] hover:bg-[#431907]  mt-4 text-right  btn">
+<form method="dialog">
+
+<button   className="flex text-white ml-auto  items-center font-bold font-workSense  gap-2 bg-[#4F847B] hover:bg-[#431907]  mt-4 text-right  btn">
 
 <MdSave  className="text-white flex text-3xl   "/>
 <span >    Submit </span>
 </button>
 
+
+</form>
  </div>
 
 
@@ -204,10 +208,10 @@ if(data.data.acknowledged){
       </form>
         </div>
 
-        {/* start */}
+      
 
     <form method="dialog">
-      {/* if there is a button in form, it will close the modal */}
+  
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
 

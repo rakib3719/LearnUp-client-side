@@ -28,7 +28,10 @@ setLoading(false)
 },[])
 
 if(loading){
-    return <p>loading...</p>
+    return <div  className="text-center flex mt-32 items-center justify-center w-[100%]"> <span className="loading loading-bars loading-xs"></span>
+    <span className="loading loading-bars loading-sm"></span>
+    <span className="loading loading-bars loading-md"></span>
+    <span className="loading loading-bars loading-lg"></span></div>
 }
 
 if(myAssData.length < 1){
@@ -36,10 +39,10 @@ if(myAssData.length < 1){
     return <p className="text-center text-3xl font-bold font-raleway mt-28">You are no attend any assignment</p>
 }
     return (
-       myAssData.map(myAssData=> <MyassignmentInfo  
+       myAssData.map((myAssData, idx)=> <MyassignmentInfo  
        key={myAssData._id}
        myAssData= {myAssData}
-       
+       idx={idx}
        ></MyassignmentInfo>)
     );
 };

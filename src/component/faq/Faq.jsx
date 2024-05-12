@@ -5,7 +5,7 @@ const Faq = () => {
 const {isDarkMode} = useTheme()
 
     return (
-        <div  className="mt-8 font-raleway">
+        <div id="faq" className="mt-8 font-raleway">
             <section className={`${!isDarkMode ? 'b' : 'bo rounded'} da0`}>
 	<div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
 		<h2 className="text-2xl font-semibold sm:text-4xl">Frequently Asked Questions</h2>

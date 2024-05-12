@@ -1,73 +1,70 @@
 
 import PropTypes from 'prop-types';
 
-const MyassignmentInfo =({myAssData}) => {
-    console.log(myAssData);
+const MyassignmentInfo =({myAssData, idx}) => {
+  
 
-    const {assginmentTitle, marks, obtainedMarks,status,feedback,examineeName,examineeEmail} = myAssData;
+    const {assginmentTitle, marks, obtainedMarks,status,feedback} = myAssData;
+
+
+    const ontainMarks = obtainedMarks || '--'
 
    
     return (
-        <div className="bg-gray-100  py-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white shadow-md rounded-lg overflow-hidden">
-           {/* bg-[#682a10] ml-4 mb-8 hover:bg-[#3d1707] */}
-            <div className="bg-[#682a10] px-4 py-6 text-center text-white">
-              <h1 className="text-2xl font-semibold"> {assginmentTitle}</h1>
-              <p>Your Name : {examineeName}</p>
-              <p>Your Email: {examineeEmail}</p>
-           
-            </div>
-  
-            {/* Result Details */}
-            <div className="p-6">
-            <div className="overflow-x-auto">
-  <table className="table md:table-lg table-xs">
-    {/* head */}
-    <thead>
-      <tr>
-  
-        <th>Assignment <br className='sm:hidden'/> marks</th>
-        {
-           obtainedMarks && <th>Obtained <br className='sm:hidden'/> Marks</th>
-        }
-        <th   >Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
-      <tr>
-       
-        <td>{marks}</td>
-        {
-            obtainedMarks && <td>{obtainedMarks}</td>
-        }
-        <td   >     <span className={`${status === 'pending' ? 'bg-[#c0392b]' : 'bg-[#130f40]'} px-4 py-[6px] font-raleway rounded-full text-white`}>{status}</span> </td>
-      </tr>
-     
-    </tbody>
-  </table>
+      <div className="container font-poppoins p-2 mx-auto sm:p-4 dark:text-gray-800">
+	<h2 className="mb-4 text-2xl font-semibold leading-tight">#{idx+1}</h2>
+	<div className="overflow-x-auto">
+		<table className="min-w-full text-xs md:text-[14px]">
+			
+			<thead className="dark:bg-gray-300">
+				<tr className="text-left">
+					<th className="p-3">Assignment Title</th>
+					<th className="p-3">Marks</th>
+					
+					<th className="p-3 ">Obtained Marks</th>
+					<th className="p-3">Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+					<td className="p-3">
+						<p>{assginmentTitle}</p>
+					</td>
+					<td className="p-3">
+						<p>{marks}</p>
+					</td>
+					
+					<td className="p-3 ">
+						<p>{ontainMarks}</p>
+					</td>
+					<td className="p-3 ">
+						<span className={`px-3 py-1 font-semibold rounded-md ${status !== 'pending' ? 'bg-violet-600' : 'bg-orange-500'} dark:text-gray-50`}>
+							<span>Pending</span>
+						</span>
+					</td>
+				</tr>
+			
+				
+			</tbody>
+		</table>
+   { !status =="pending" && <div className="w-full  border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+					<div className="p-3">
+						<p  className='font-bold text-lg'>Feedback</p>
+					</div>
+					<textarea disabled className='w-full   border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50'>
+
+
+            {feedback}
+          </textarea>
+				</div>}
+	</div>
 </div>
-            </div>
-  
-      
-          { feedback && <div className="bg-[#682a10] text-white p-6">
-              <h3 className="text-lg font-semibold mb-2">Feedback:</h3>
-              <p className="text-sm">
-             {feedback}
-              </p>
-            </div>}
-  
-            {/* Actions */}
-            
-          </div>
-        </div>
-      </div>
-    );
+    )
 };
 
 MyassignmentInfo.propTypes = {
-    myAssData: PropTypes.object
+    myAssData: PropTypes.object,
+    idx: PropTypes.number
 };
 
 export default MyassignmentInfo;

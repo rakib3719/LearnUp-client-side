@@ -1,13 +1,16 @@
 import {  NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 
-import logo from '../../assets/img/Blue Elegant Concept Foundation Logo.png'
+import logo from '../../assets/img/Abstract_Creative_Idea_Brain_Bulb_Logo-removebg-preview.png'
+import logo2 from '../../assets/img/logooo22222.png'
 import useAxiosSecure from "../../hook/useAxiosSecure";
 
 import Theme from "../themeController/Theme";
+import useTheme from "../../hook/useTheme";
 
 
 const Navbar = () => {
+  const {isDarkMode} = useTheme()
 
  const navigate = useNavigate()
 
@@ -19,7 +22,7 @@ const Navbar = () => {
         
         
     }
-    const nav = <div className="md:flex text-lg font-poppins">
+    const nav = <div className="md:flex text-lg md:text-[16px] lg:text-xl font-poppins">
     
 <li>    <NavLink  to='/' >  Home </NavLink></li>
 <li>    <NavLink  to='/assignment' >  Assignments </NavLink></li>
@@ -30,13 +33,13 @@ const Navbar = () => {
 {!user && <li>    <NavLink  to='/registar' >  Register  </NavLink></li>} 
 { user && <li>    <NavLink  to='/create_ass' >  Create Assignmentst </NavLink></li>} 
 { user && <li>    <NavLink  to='/pending' >  Pending Assignments </NavLink></li>} 
-<Theme></Theme>
 
 
     </div>
 
     return (
         <div   className="navbar   z-10 relative">
+          <div  className="fixed right-0 top-12"><Theme></Theme></div>
         <div className="navbar ">
  <div className="navbar-start">
    <div className="dropdown">
@@ -47,9 +50,9 @@ const Navbar = () => {
        {nav}
      </ul>
    </div>
-   <a className="  text-[16px] sm:text-2xl font-bold font-playFair -ml-4 sm:-ml-0"> <img src={logo} alt="" className="w-20" /> </a>
+   <a className="  text-[16px] sm:text-2xl font-bold font-playFair -ml-4 sm:-ml-0"> <img src={isDarkMode? logo2 : logo} alt="" className="w-20 lg:w-28 " /> </a>
  </div>
- <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden -mr-7 mr-1 lg:mr-28 md:flex"}>
+ <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden lg:mr-16 -mr-7 mr-1  md:flex"}>
    <ul className="menu menu-horizontal px-1">
 
        {nav}
@@ -90,7 +93,7 @@ const Navbar = () => {
             className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
           >
             <li onClick={()=> navigate('/myAssignment')} >
-              <div className='bg-gray-200 btn font-raleway  text-center '>My Attempted Assignments</div>
+              <div className='bg-gray-600 text-white btn font-raleway  text-center '>My Attempted Assignments</div>
             </li>
            
             <li className='mt-2'>

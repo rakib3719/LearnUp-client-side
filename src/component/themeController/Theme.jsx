@@ -14,7 +14,7 @@ const Theme = () => {
         style={{ marginBottom: '2rem' }}
         checked={isDarkMode}
         onChange={toggleDarkMode}
-        size={30}
+        size={40}
       />   
         </div>
     );

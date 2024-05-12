@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import router from './routes/Routes'
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './provider/authProvider/AuthProvider'
-import { ChakraProvider } from '@chakra-ui/react'
+
 import ThemeControll from './component/themeController/ThemeControll'
 
 

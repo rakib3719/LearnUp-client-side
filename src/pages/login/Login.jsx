@@ -135,7 +135,7 @@ const {isDarkMode} = useTheme()
       
       </div>
       </label>
-      <input type="submit" className=" btn p-2  rounded-2xl mt-4  bg-[#4f847b]  text-white w-full" value="Log In" />
+      <input type="submit" className=" btn p-2  rounded-2xl mt-4  bg-yellow-900  text-white w-full" value="Log In" />
             </form>
             <p className="mt-2 text-center font-bold ">Or log In with</p>
             <div className="text-center sm:flex items-center justify-center">

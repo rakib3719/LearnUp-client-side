@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useCommonAxios from "../../hook/useCommonAxios";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
@@ -13,7 +13,7 @@ const Update = () => {
     const {id }= useParams();
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
-
+const navigate = useNavigate()
     const {title, description, mark,_id, thumb_img, level, date} = data;
 
 
@@ -48,9 +48,25 @@ const Update = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+
+                  setTimeout(()=>{
+
+                    navigate('/assignment')
+                  }, 1500)
+            }
+
+            else{
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Please Update anything",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+
             }
         })
-       
+   
       
     }
  
