@@ -2,7 +2,7 @@ import { Link, useRouteError } from "react-router-dom";
 
 const Errror = () => {
     const error = useRouteError();
-    console.log(error);
+  
     return (
 
   
@@ -24,7 +24,7 @@ const Errror = () => {
             </div> }
 			<p className="text-2xl font-semibold md:text-3xl">Sorry, Page
               <span>   {error.statusText} </span></p>
-			<p className="mt-4 mb-8 dark:text-gray-600">{error.data.split(':').splice(1).join(' ')}</p>
+			<p className="mt-4 mb-8 dark:text-gray-600">{error?.data.split(':').splice(1).join(' ')}</p>
 			<Link to={'/'} rel="noopener noreferrer" href="#" className="px-8 py-3 font-semibold rounded dark:bg-[#C24914] dark:text-gray-50">Back to homepage</Link>
 		</div>
 	</div>

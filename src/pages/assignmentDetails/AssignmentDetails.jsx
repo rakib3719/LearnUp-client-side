@@ -9,7 +9,7 @@ import { FaFilePdf } from "react-icons/fa";
 import { MdNoteAlt } from "react-icons/md";
 import useAuth from "../../hook/useAuth";
 import useAxiosSecure from "../../hook/useAxiosSecure";
-import Swal from "sweetalert2";
+
 import useTheme from "../../hook/useTheme";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -22,7 +22,7 @@ const AssignmentDetails = () => {
     const {id} = useParams();
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
-    console.log(data);
+   
     const commonAxiosSecure = useCommonAxios();
     const axiosSecure = useAxiosSecure()
 const {user} = useAuth()
@@ -38,10 +38,10 @@ const formHandle = e => {
     const marks = mark;
     const assginmentTitle = title;
     
-    console.log(pdfLink, note, examineeEmail, examineeName);
+   
     const examineInfo = {pdfLink, assginmentTitle, marks, note,status, examineeEmail, examineeName};
 
-    console.log(examineInfo);
+
     axiosSecure.post('/assSubmit', examineInfo)
     .then(data => {
         {
@@ -197,11 +197,14 @@ if(data.data.acknowledged){
  <div  className="">
 
 
-<button   className="flex text-white ml-auto  items-center font-bold font-workSense  gap-2 bg-[#4F847B] hover:bg-[#12302b]  mt-4 text-right  btn">
+
+<input type="submit" className="flex text-white ml-auto  items-center font-bold font-workSense  text-3xl  gap-2 bg-[#4F847B] hover:bg-[#12302b]  mt-4 text-right  btn" value=" Submit " />
+
+{/* <button type="submit"  className="flex text-white ml-auto  items-center font-bold font-workSense  text-3xl  gap-2 bg-[#4F847B] hover:bg-[#12302b]  mt-4 text-right  btn">
 
 <MdSave  className="text-white flex text-3xl   "/>
 <span >    Submit </span>
-</button>
+</button> */}
 
 
 

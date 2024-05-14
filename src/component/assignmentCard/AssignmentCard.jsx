@@ -6,6 +6,8 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaCalendar, FaMarker } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import useTheme from '../../hook/useTheme';
+import Swal from 'sweetalert2';
+import useAuth from '../../hook/useAuth';
 
 
 
@@ -13,6 +15,23 @@ const AssignmentCard = ({assignMentData, deleteHandle}) => {
 const navigate = useNavigate()
     const {title, description, mark,email,_id, thumb_img, level, date} = assignMentData;
  const {isDarkMode} = useTheme()
+ const {user} = useAuth()
+
+
+ const updateHandle = (_id)=>{
+  if(!user){
+    Swal.fire({
+        icon: "error",
+        title: "Update after Login",
+text: "Please log in to Update this item."
+
+        
+      });
+      return;
+} 
+
+navigate(`/update/${_id}`)
+ }
 
     return ( 
         <div className="card card-compact  bg-base-100 border  " >
@@ -34,11 +53,20 @@ const navigate = useNavigate()
            <div className=" flex mt-4 justify-between gap-2">
 
 
+{/*    if(!user){
+            Swal.fire({
+                icon: "error",
+                title: "Delete after Login",
+        text: "Please log in to delete this item."
+        
+                
+              });
+              return;
+        } */}
 
+        {/* navigate(`/update/${_id}`) */}
 
-<button onClick={()=>{navigate(`/update/${_id}`)
-
-}} className="btn font-poppoins w-1/2 bg-[#4F847B] text-white flex items-center gap-2">  <MdSystemUpdateAlt /> Update</button>
+<button onClick={()=>{updateHandle(_id)}} className="btn font-poppoins w-1/2 bg-[#4F847B] text-white flex items-center gap-2">  <MdSystemUpdateAlt /> Update</button>
 
 
       <button onClick={()=>deleteHandle(_id, email)} className="btn font-poppoins w-1/2 bg-orange-600 text-white flex items-center gap-2">   <MdDeleteForever /> Delete</button>

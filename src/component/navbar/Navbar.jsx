@@ -52,7 +52,7 @@ const Navbar = () => {
    </div>
    <a className="  text-[16px] sm:text-2xl font-bold font-playFair -ml-4 sm:-ml-0"> <img src={isDarkMode? logo2 : logo} alt="" className="w-20 lg:w-28 " /> </a>
  </div>
- <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden lg:mr-16 -mr-7 mr-1  md:flex"}>
+ <div className={!user? "navbar-center hidden md:flex" : "navbar-center hidden lg:mr-16 -mr-7   md:flex"}>
    <ul className="menu menu-horizontal px-1">
 
        {nav}

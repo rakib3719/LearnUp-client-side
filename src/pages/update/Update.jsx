@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useCommonAxios from "../../hook/useCommonAxios";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
@@ -41,11 +41,11 @@ const navigate = useNavigate()
 
         const assinmentInfo = {title, description, mark, thumb_img, level, date}
 
-        console.log(assinmentInfo);
+      
         commonAxiosSecure.put(`/update?id=${_id}`, assinmentInfo)
         .then(data => {
 
-            console.log(data.data);
+          
             if(data.data. modifiedCount > 0){
                 Swal.fire({
                     position: "center",

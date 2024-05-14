@@ -38,7 +38,7 @@ const {isDarkMode }= useTheme()
             Swal.fire({
                 icon: "error",
                 title: "Permission Denied",
-                text: "You can only delete assignments that you have created yourself!",
+                text: "You can only delete your own created assignments!",
                 
               });
               return;
@@ -56,11 +56,7 @@ const {isDarkMode }= useTheme()
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-            //   Swal.fire({
-            //     title: "Deleted!",
-            //     text: "Your file has been deleted.",
-            //     icon: "success"
-            //   });
+            
         
 
             

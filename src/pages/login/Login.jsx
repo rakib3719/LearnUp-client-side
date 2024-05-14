@@ -1,4 +1,4 @@
-import {  FaGoogle, FaTwitter } from "react-icons/fa";
+import {  FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast} from "react-toastify";
 import loginImg from '../../assets/img/Group.png'
@@ -18,11 +18,11 @@ const {isDarkMode} = useTheme()
     const googleLogin = ()=> {
         loginWithGoogle()
         .then(result => {
-            console.log(result.user.email);
+         
           
             toast("Login Successfully")
             const email = result.user.email;
-            console.log(email);
+         
             axiosSecure.post('/jwt', {email})
             .then(data => console.log(data.data))
 
@@ -55,7 +55,7 @@ const {isDarkMode} = useTheme()
 
         login(email, password)
         .then(result => {
-            console.log(result);
+      
             const email = result.user.email;
     
 
@@ -66,7 +66,7 @@ const {isDarkMode} = useTheme()
             // setTimeout(()=> { navigate(currentLocation.state)}, 2000)
         })
         .catch(error => {
-            console.log(error.message);
+          
           
             let storeError=[]
             let errorLetter=error.message.split(' ')[2].split('')

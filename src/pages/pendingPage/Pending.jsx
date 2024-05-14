@@ -1,21 +1,34 @@
 import { useEffect, useState } from "react";
-import useCommonAxios from "../../hook/useCommonAxios";
 import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hook/useAxiosSecure";
 
 
 const Pending = () => {
     const navigate = useNavigate()
-    
-    const commonAxios = useCommonAxios()
+    const [loading, setLoading] = useState(true)
+    const Axiossecure = useAxiosSecure()
 const [data, setData] = useState([]);
 
 
 useEffect(()=>{
 
-commonAxios('/pending')
-.then(data => {setData(data.data)})
+  Axiossecure('/pending')
+.then(data => {setData(data.data)
+
+setLoading(false)
+
+
+})
 
 },[])
+
+
+if(loading){
+  return <div  className="text-center flex mt-32 items-center justify-center w-[100%]"> <span className="loading loading-bars loading-xs"></span>
+  <span className="loading loading-bars loading-sm"></span>
+  <span className="loading loading-bars loading-md"></span>
+  <span className="loading loading-bars loading-lg"></span></div>
+}
 
     return (
 

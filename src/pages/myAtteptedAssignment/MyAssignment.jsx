@@ -36,7 +36,7 @@ if(loading){
 
 if(myAssData.length < 1){
 
-    return <p className="text-center text-3xl font-bold font-raleway mt-28">You are no attend any assignment</p>
+    return <p className="text-center text-3xl font-bold font-raleway mt-28">You have not attended any assignments.</p>
 }
     return (
        myAssData.map((myAssData, idx)=> <MyassignmentInfo  

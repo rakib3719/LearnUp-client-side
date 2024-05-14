@@ -61,8 +61,7 @@ const {registar, updateUser} = useAuth()
 
      
     
-        console.log(email,name, password, photo);
-
+   
         if(password.length < 6){
             toast.error("Password should be at least 6 characters");
             return
