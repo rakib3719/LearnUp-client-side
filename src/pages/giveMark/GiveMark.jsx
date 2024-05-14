@@ -48,7 +48,7 @@ commonAxios.patch(`/giveMark?id=${id}`, markDetails)
 
           <div className="lg:w-1/2">
 
-        <iframe  src={data.pdfLink} className="md:w-[300px] h-[300px] w-[250px] "></iframe>
+        <iframe  src={data.pdfLink} className="w-full rounded h-[300px]  "></iframe>
 
           <div className="mt-4">
           <label className={`before:block text-lg ${!isDarkMode && 'text-gray-700'}  font-medium `}>Note:</label>
