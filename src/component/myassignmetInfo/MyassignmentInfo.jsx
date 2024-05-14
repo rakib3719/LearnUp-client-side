@@ -7,7 +7,7 @@ const MyassignmentInfo = ({ myAssData, idx }) => {
   const obtainedMarksDisplay = obtainedMarks || '--';
 
   return (
-    <div className="container font-poppoins p-2 mx-auto sm:p-4 dark:text-gray-800">
+    <div className="container font-poppoins mt-6 p-2 mx-auto sm:p-4 dark:text-gray-800">
       <h2 className={`mb-4 text-2xl font-semibold ${isDarkMode && 'text-white'} leading-tight`}>#{idx + 1}</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full text-xs md:text-[14px]">
