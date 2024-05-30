@@ -1,11 +1,13 @@
 
 import PropTypes from 'prop-types';
 import useAuth from '../hook/useAuth';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
 
 
 const PrivateRoute = ({children}) => {
+
+    const currentLocation = useLocation().pathname
     const {loader, user} = useAuth()
     if(loader){
         return <div  className='flex items-center mt-28 justify-center'>
@@ -31,7 +33,7 @@ const PrivateRoute = ({children}) => {
     }
 
 
-    return <Navigate   to='/login' ></Navigate>}
+    return <Navigate state={currentLocation}  to='/login' ></Navigate>}
 
 PrivateRoute.propTypes = {
     children: PropTypes.node

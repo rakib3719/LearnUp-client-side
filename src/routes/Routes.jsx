@@ -12,6 +12,7 @@ import Pending from "../pages/pendingPage/Pending";
 import GiveMark from "../pages/giveMark/GiveMark";
 import MyAssignment from "../pages/myAtteptedAssignment/MyAssignment";
 import Errror from "../pages/error/Errror";
+import Rank from "../pages/ranking/Rank";
 
 
 const router = createBrowserRouter([{
@@ -68,6 +69,13 @@ const router = createBrowserRouter([{
         element: <PrivateRoute>
             <MyAssignment></MyAssignment>
 
+        </PrivateRoute>
+    },
+    {
+        path:'/rank',
+        element:<PrivateRoute>
+
+            <Rank></Rank>
         </PrivateRoute>
     }
 

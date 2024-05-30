@@ -1,5 +1,5 @@
 import {  FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast} from "react-toastify";
 import loginImg from '../../assets/img/Group.png'
 import useAuth from "../../hook/useAuth";
@@ -8,7 +8,8 @@ import useTheme from "../../hook/useTheme";
 
 
 const Login = () => {
-
+    const currentLocation = useLocation()
+const navigate = useNavigate()
 const axiosSecure = useAxiosSecure()
     const {login, loginWithGoogle} = useAuth()
 
@@ -26,7 +27,7 @@ const {isDarkMode} = useTheme()
             axiosSecure.post('/jwt', {email})
             .then(data => console.log(data.data))
 
-            // setTimeout(()=> { navigate(currentLocation.state)}, 1000)
+            setTimeout(()=> { navigate(currentLocation.state || "/")}, 2000)
         })
         .catch(error => {
             toast.error(error.message)
@@ -63,7 +64,7 @@ const {isDarkMode} = useTheme()
             axiosSecure.post('/jwt', {email})
             .then(data => console.log(data.data))
         
-            // setTimeout(()=> { navigate(currentLocation.state)}, 2000)
+            setTimeout(()=> { navigate(currentLocation.state || "/")}, 2000)
         })
         .catch(error => {
           

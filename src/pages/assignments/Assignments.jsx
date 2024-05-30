@@ -25,7 +25,7 @@ const {isDarkMode }= useTheme()
         if(!user){
             Swal.fire({
                 icon: "error",
-                title: "Delete after Login",
+                title: "Login required for this action.",
         text: "Please log in to delete this item."
         
                 

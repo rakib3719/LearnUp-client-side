@@ -95,6 +95,9 @@ const Navbar = () => {
             <li onClick={()=> navigate('/myAssignment')} >
               <div className='bg-gray-600 text-white btn font-raleway  text-center '>My Attempted Assignments</div>
             </li>
+            <li onClick={()=> navigate('/rank')} >
+              <div className='bg-gray-600 mt-2 text-white btn font-raleway  text-center '>Ranking</div>
+            </li>
            
             <li className='mt-2'>
               <button onClick={logOutHandle} className='btn font-raleway bg-[#C24914] text-white block text-center'>Logout</button>
