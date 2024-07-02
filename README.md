@@ -4,20 +4,22 @@
 
 [Server side repo](https://github.com/rakib3719/LearnUp-server-side)
 
-## Features of LearnUp:
+## Project Overview
+LearnUp is an online platform designed to facilitate group study sessions. It offers a user-friendly interface and robust features to enhance the learning experience.
+## Key Features
 
-1. **User-Friendly Interface:** LearnUp provides a clean and intuitive user interface, making it easy for users to navigate through different sections of the website.
-2. **Responsive Design:** The website is fully responsive, ensuring a seamless experience across various devices such as desktops, tablets, and mobile phones.
-3. **Assignment Creation:** Users can create assignments with detailed information including title, description, marks, thumbnail image URL, difficulty level (easy, medium, hard), and due date selection using a date picker.
-4. **Assignment Management:** Users have control over their created assignments, with options to update details, view assignment details, and delete assignments (only ones they have created).
-5. **Assignment Grading:** The platform facilitates grading of assignments, with functionalities to view pending assignments, provide marks, feedback, and mark assignments as completed.
-6. **Authentication:** LearnUp features secure authentication with JWT tokens, ensuring user data safety and access control to private routes.
-7. **Theme Customization:** Users can toggle between light and dark themes, enhancing user experience based on their preferences.
-8. **Validation and Error Handling:** The website incorporates form validations for create assignments and authentication forms, ensuring data accuracy and user-friendly error messages.
-9. **PDF Preview:** On the submitted assignment page, users can preview PDF submissions using iframes, providing a convenient way to review submitted content.
-10. **Pagination:** LearnUp implements pagination on the assignments page, improving user experience when browsing through multiple assignments.
+- **User-Friendly Interface:** Navigate seamlessly through different sections.
+- **Responsive Design:** Ensures optimal viewing experience across devices.
+- **Assignment Creation:** Create detailed assignments with ease.
+- **Assignment Management:** Manage assignments efficiently.
+- **Assignment Grading:** Grade assignments and provide feedback.
+- **Authentication:** Secure access with JWT tokens.
+- **Theme Customization:** Toggle between light and dark themes.
+- **Validation and Error Handling:** Ensures data accuracy and user-friendly messages.
+- **PDF Preview:** Preview PDF submissions conveniently.
+- **Pagination:** Enhances browsing experience with paginated assignments.
 
-## Technologies Used:
+## Technologies Used
 
 - **Frontend:**
   - React
@@ -35,6 +37,15 @@
 - **Others:**
   - Axios
   - JWT Token
-  - AOS 
+  - AOS
   - Various npm packages
+
+## Local Setup
+
+To run this project locally, follow these steps:
+1. Clone the repository from [LearnUp Server Side Repo](https://github.com/rakib3719/LearnUp-server-side).
+2. Install dependencies using `npm install`.
+3. Start the server using `npm start`.
+
+Ensure MongoDB is running locally or configure the connection string as needed in the server configuration files.
 
